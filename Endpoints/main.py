@@ -17,9 +17,23 @@ for line in lines:
     line = line.split(',')
 
     lat = line[0]
-    print(lat)
     lon = line[1]
-    print(lon)
 
-    weatherJson = get_name_data(lat, lon).json()
-    print(weatherJson)
+    with requests.session() as s:
+        s.get(get_name_data(lat, lon))
+
+        data = s.get(get_name_data(lat, lon)).json()
+
+
+    print(data)
+    if (data != []):
+        jsonDict = data[0]
+        print(jsonDict)
+
+        country = jsonDict['country']
+        state = jsonDict['state']
+        #weatherJson = .json()
+
+
+    else:
+        print("No weather data available at these coordinates")

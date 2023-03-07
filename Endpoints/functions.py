@@ -21,7 +21,6 @@ state = "england"
 data = ""
 lines = ""
 
-
 # response = requests.get(coordURL)
 # print(response.status_code)
 # print(response.json())
@@ -36,19 +35,21 @@ lines = ""
 # read data from file
 def read_data_from_file(file):
     with open(file, 'r') as f:
-        return f.readlines()
+        return f.read().split('/')
 
 
 def get_name_data(lat, lon):
-    print("https://api.openweathermap.org/geo/1.0/reverse?lat=" + lat + "&lon=" + lon + "&limit=5&appid=" + apiKey)
+    url = 'https://api.openweathermap.org/geo/1.0/reverse?lat=' + lat + '&lon=' + lon + '&limit=5&appid=' + apiKey
+    url = url.strip()
+    print(url)
 
-    return requests.get(
-        "https://api.openweathermap.org/geo/1.0/reverse?lat=" + lat + "&lon=" + lon + "&limit=5&appid=" + apiKey)
+    return url
 
 
 # request data from API
-def get_weather_data(request):
+def get_weather_data(coordURL):
     response = requests.get(coordURL)
+    response.json()
     # sort from json to data
     # return data
 
