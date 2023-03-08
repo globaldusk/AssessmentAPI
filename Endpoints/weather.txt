@@ -1,0 +1,10 @@
+: the weather is Clouds and the temp is 277.04
+Lumbres: the weather is Snow and the temp is 274.54
+Felixstowe: the weather is Clouds and the temp is 275.48
+Cambridge: the weather is Clouds and the temp is 272.2
+Raversijde: the weather is Snow and the temp is 275.04
+Clacton-on-Sea: the weather is Clouds and the temp is 275.74
+Norwich: the weather is Clouds and the temp is 272.01
+Calais: the weather is Snow and the temp is 275.86
+Les Tombes: the weather is Snow and the temp is 273.96
+Lowestoft: the weather is Clouds and the temp is 273.87

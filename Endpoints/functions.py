@@ -38,8 +38,8 @@ def read_data_from_file(file):
         return f.read().split('/')
 
 
-def get_name_data(lat, lon):
-    url = 'https://api.openweathermap.org/geo/1.0/reverse?lat=' + lat + '&lon=' + lon + '&limit=5&appid=' + apiKey
+def get_weather_data(lat, lon):
+    url = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey
     url = url.strip()
     print(url)
 
@@ -47,18 +47,16 @@ def get_name_data(lat, lon):
 
 
 # request data from API
-def get_weather_data(coordURL):
-    response = requests.get(coordURL)
-    response.json()
+def get_weather_by_name(name, country, state):
+    url = 'http://api.openweathermap.org/geo/1.0/direct?q='+name+','+state+','+country+'&limit=5&APPID=' + apiKey
+    print (url)
+    response = requests.get(url)
+    return response.json()
     # sort from json to data
     # return data
 
 
 # send data to file
-def write_weather_to_file(request):
-    request.get('https://api.openweathermap.org/data/2.5/weatssssher?q=London,uk&APPID=' + apiKey)
-# delete file
-
-# retreive data from file
-
-# turn data into visual rep
+def write_weather_to_file(linesToWrite, file):
+    with open(file, 'w') as f:
+        f.writelines(linesToWrite)
